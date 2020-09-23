@@ -44,6 +44,11 @@ def getAppleMusicSongs():
             session.playlist_add_items(created_playlist['uri'], [spotify_song['uri']])
     return {"FINISH": "FINISH"}
 
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 '''
 TODO: Implement Dependency injection later 
 from dependency_injector import containers, providers
