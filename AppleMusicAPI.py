@@ -32,6 +32,7 @@ class AppleMusicAPI:
 
     def parseArtistName(self, stra):
         return re.split('& |, ', stra)
+        # TODO: re.split('&|& |,| x | & ', stra) Limits the API Rate. Need to look into this.
 
     def getBearerToken(self):
         response = requests.get("https://us-central1-musickit-jwt.cloudfunctions.net/jwtFunction").json()
