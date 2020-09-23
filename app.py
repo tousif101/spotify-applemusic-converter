@@ -12,18 +12,25 @@ spotify_service = SpotifyAPI.SpotifyAPI()
 applemusic_service = AppleMusicAPI.AppleMusicAPI()
 song_compare_service = SongComparer.SongComparer()
 
+
 @app.route('/get-applemusic-songs')
 def getAppleMusicSongs():
     apple_playlist_id = request.args.get("apple_playlist_id")
     playlist_name = request.args.get("playlist_name")
 
+    logging.info("The playlist_id is " + apple_playlist_id)
     apple_songs = []
     try:
         apple_songs = applemusic_service.getPlayList(apple_playlist_id)
     except Exception as e:
         logging.error(e.__str__())
 
-    session = spotify_service.session()
+    session = None
+    try:
+        session = spotify_service.session()
+    except Exception as e:
+        print(e.__str__())
+        logging.error(e.__str__())
 
     spotify_songs = []
     for apple_song in apple_songs:
@@ -48,6 +55,7 @@ def getAppleMusicSongs():
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
 
 '''
 TODO: Implement Dependency injection later 
