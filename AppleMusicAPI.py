@@ -21,7 +21,6 @@ class AppleMusicAPI:
             tracks = data['data'][0]['relationships']['tracks']['data']
             for song in tracks:
                 name = re.sub("[\(\[].*?[\)\]]", "", song["attributes"]['name']).strip()
-                print(song["attributes"]['artistName'])
                 artist = self.parseArtistName(song["attributes"]['artistName'])
                 album = song["attributes"]['albumName']
                 date = song["attributes"]['releaseDate']

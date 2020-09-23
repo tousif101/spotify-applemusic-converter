@@ -8,7 +8,7 @@ class SongComparer:
         cleaned_songa = re.sub('[\W_]+', '', songa)
         cleaned_songb = re.sub('[\W_]+', '', songb)
 
-        return fuzz.ratio(cleaned_songa.lower(), cleaned_songb.lower())
+        return fuzz.partial_ratio(cleaned_songa.lower(), cleaned_songb.lower())
 
     def song_compare(self, apple_song, spotify_song):
         # track the percentage on the searches
