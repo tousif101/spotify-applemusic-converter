@@ -44,20 +44,21 @@ def getAppleMusicSongs():
             spotify_songs.append(spotify_song)
 
     user_id = session.me()['id']
+    play_list_id = None
     try:
         created_playlist = session.user_playlist_create(user_id, playlist_name, public=True)
+        play_list_id = created_playlist['uri']
     except Exception as e:
         logging.error(e.__str__())
 
     for spotify_song in spotify_songs:
-        if spotify_song is not None:
+        if spotify_song is not None and play_list_id is not None:
             try:
-                session.playlist_add_items(created_playlist['uri'], [spotify_song['uri']])
+                session.playlist_add_items(play_list_id, [spotify_song['uri']])
             except Exception as e:
                 logging.error(e.__str__())
 
     return {"FINISH": "FINISH"}
-
 
 @app.route('/')
 def hello_world():
