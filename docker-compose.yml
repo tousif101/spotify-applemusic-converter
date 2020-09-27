@@ -1,0 +1,13 @@
+web:
+  build: ./
+  ports:
+   - "5000:5000"
+  volumes:
+   - .:/code
+  environment:
+    - LC_ALL=en_US.utf-8
+    - LANG=en_US.utf-8
+    - SPOTIPY_CLIENT_ID=b311e559cbf044f8a774e51ba66adfc4
+    - SPOTIPY_CLIENT_SECRET=9b340aec80664664aa40e2611fce64f0
+    - SPOTIPY_REDIRECT_URI=http://localhost:8888/callback
+
