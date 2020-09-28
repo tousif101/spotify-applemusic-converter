@@ -54,6 +54,7 @@ def getAppleMusicSongs():
     for spotify_song in spotify_songs:
         if spotify_song is not None and play_list_id is not None:
             try:
+                logging.info(play_list_id)
                 session.playlist_add_items(play_list_id, [spotify_song['uri']])
             except Exception as e:
                 logging.error(e.__str__())
