@@ -16,7 +16,6 @@ class SpotifyAPI:
         # return spotipy.Spotify(auth_manager=auth_manager)
 
         user = str(uuid.uuid1())
-        #
         token = util.prompt_for_user_token(user, scope)
         # sp = None
         # if token:
