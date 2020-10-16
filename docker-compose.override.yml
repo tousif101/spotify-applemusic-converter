@@ -1,0 +1,4 @@
+web:
+  environment:
+    - FLASK_DEBUG=true
+    - PORT=4000

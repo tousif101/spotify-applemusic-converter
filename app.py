@@ -4,6 +4,7 @@ import SpotifyAPI
 import AppleMusicAPI
 import SongComparer
 import logging
+from os import environ
 
 app = Flask(__name__)
 app.secret_key = 'some key for session'
@@ -77,4 +78,5 @@ container = Container()
 '''
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    port = int(environ.get('PORT', 5000))
+    app.run(port=port)

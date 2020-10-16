@@ -3,7 +3,7 @@ web:
   ports:
    - "5000:5000"
   volumes:
-   - .:/code
+   - ./:/app
   environment:
     - LC_ALL=en_US.utf-8
     - LANG=en_US.utf-8
