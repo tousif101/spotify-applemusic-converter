@@ -70,13 +70,14 @@ def hello_world():
 '''
 TODO: Implement Dependency injection later 
 from dependency_injector import containers, providers
-class Container(containers.DeclarativeContainer):
-    spotify_service = providers.Singleton(SpotifyAPI.SpotifyAPI())
-    applemusic_service = providers.Singleton(AppleMusicAPI.AppleMusicAPI())
-
-container = Container()
 '''
 
 if __name__ == "__main__":
     port = int(environ.get('PORT', 5000))
     app.run(port=port)
+
+class Container(containers.DeclarativeContainer):
+    spotify_service = providers.Singleton(SpotifyAPI.SpotifyAPI())
+    applemusic_service = providers.Singleton(AppleMusicAPI.AppleMusicAPI())
+
+container = Container()
