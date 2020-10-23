@@ -46,8 +46,7 @@ def index():
            f'<a href="/playlists">my playlists</a> | ' \
            f'<a href="/currently_playing">currently playing</a> | ' \
            f'<a href="/current_user">me</a>' \
- \
-           @ app.route('/sign_out')
+
 
 
 def sign_out():
