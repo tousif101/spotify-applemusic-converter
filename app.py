@@ -69,6 +69,9 @@ def getAppleMusicSongs():
 
 from flask_session import Session
 import os
+from flask import session
+
+
 
 # app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
